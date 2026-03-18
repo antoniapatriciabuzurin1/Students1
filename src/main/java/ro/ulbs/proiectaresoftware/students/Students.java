@@ -1,5 +1,5 @@
 package ro.ulbs.proiectaresoftware.students;
-
+import java.util.Objects;
 public class Students {
 
     private int numarMatricol;
@@ -37,5 +37,19 @@ public class Students {
                 prenume,
                 nume,
                 formatieDeStudiu);
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Students student = (Students) o;
+        return Objects.equals(prenume, student.prenume) &&
+                Objects.equals(nume, student.nume) &&
+                Objects.equals(formatieDeStudiu, student.formatieDeStudiu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prenume, nume, formatieDeStudiu);
     }
 }
