@@ -17,6 +17,59 @@ public class Application {
         Path outputSortedPath = Paths.get("studenti_out_sorted.txt");
         List<Students> listaStudenti = new ArrayList<>();
 
+       /* List<Students> listaStudenti = new ArrayList<>();
+
+        Students s1 = new Students(112, "Ioan", "Popa", "TI21/1");
+        Students s2 = new Students(112, "Maria", "Oprea", "TI21/1");
+        Students s3 = new Students(120, "Alis", "Popa", "TI21/2");
+        Students s4 = new Students(122, "Mihai", "Vecerdea", "TI22/1");
+        Students s5 = new Students(122, "Eugen", "Uritescu", "TI22/2");
+
+        listaStudenti.add(s1);
+        listaStudenti.add(s2);
+        listaStudenti.add(s3);
+        listaStudenti.add(s4);
+        listaStudenti.add(s5);
+
+        // a) afisare lista folosind for-each
+        for (Students s : listaStudenti) {
+            System.out.println(s);
+        }
+
+        // b)
+        Students cautat1 = new Students(120, "Alis", "Popa", "TI21/2");
+        System.out.println("Exista Alis Popa? " + existaStudent(listaStudenti, cautat1));
+
+        // c)
+        Students cautat2 = new Students(112, "Maria", "Popa", "TI21/1");
+        System.out.println("Exista Maria Popa? " + existaStudent(listaStudenti, cautat2));
+
+         Set<Students> setStudenti = new HashSet<>(listaStudenti);
+
+        // b)
+        Students cautat1 = new Students(120, "Alis", "Popa", "TI21/2");
+        System.out.println("Exista Alis Popa? " + setStudenti.contains(cautat1));
+
+        // c)
+        Students cautat2 = new Students(112, "Maria", "Popa", "TI21/1");
+        System.out.println("Exista Maria Popa? " + setStudenti.contains(cautat2));
+    }
+
+    public static boolean existaStudent(List<Students> lista, Students student) {
+
+        for (Students s : lista) {
+
+            if (s.getPrenume().equals(student.getPrenume()) &&
+                    s.getNume().equals(student.getNume()) &&
+                    s.getFormatieDeStudiu().equals(student.getFormatieDeStudiu())) {
+
+                return true;
+            }
+        }
+
+        return false;
+    } */
+
         try {
             List<String> linii = Files.readAllLines(inputPath);
 
