@@ -57,6 +57,14 @@ public class Application {
         } catch (NumberFormatException e) {
             System.err.println("Eroare la formatul numerelor in fisier: " + e.getMessage());
         }
+        System.out.println("\n--- Rezultate cautare nota ---");
+
+        float notaM = gasesteNota("Bianca", "Popescu", mapStudenti);
+        System.out.println("Nota lui Bianca Popescu: " + notaM);
+
+        float notaN = gasesteNota("Ioan", "Popa", mapStudenti);
+        System.out.println("Nota lui Ioan Popa: " + notaN);
+
         //List<Students> listaStudenti = new ArrayList<>();
 
        /* List<Students> listaStudenti = new ArrayList<>();
@@ -163,5 +171,17 @@ public class Application {
         } catch (IOException e) {
             System.err.println("Eroare la procesarea fișierelor: " + e.getMessage());
         } */
+    }
+    public static float gasesteNota(String prenume, String nume, Map<Integer, Students> tineri) {
+        Map<String, Students> mapDupaNume = new HashMap<>();
+        for (Students s : tineri.values() ) {
+            String cheieUnica = s.getNume() + " " + s.getPrenume();
+            mapDupaNume.put(cheieUnica, s);
+        }
+        String deCautat = nume + " " + prenume;
+        if(mapDupaNume.containsKey(deCautat)) {
+            return mapDupaNume.get(deCautat).getNota();
+        }
+        return 0.0f;
     }
 }

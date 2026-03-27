@@ -1,6 +1,7 @@
 package ro.ulbs.proiectaresoftware.students;
 import java.util.Objects;
 
+
 public class Students {
 
     private int numarMatricol;
@@ -14,6 +15,10 @@ public class Students {
         this.prenume = prenume;
         this.nume = nume;
         this.formatieDeStudiu = formatieDeStudiu;
+    }
+
+    public float getNota() {
+        return nota;
     }
     public void setNota(float nota) {
         this.nota = nota;
@@ -34,7 +39,6 @@ public class Students {
     public String getFormatieDeStudiu() {
         return formatieDeStudiu;
     }
-
     @Override
     public String toString() {
         return String.format("%-10d %-10s %-12s %-10s | Nota: %.2f",
