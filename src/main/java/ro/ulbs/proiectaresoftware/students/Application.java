@@ -4,18 +4,60 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
     public static void main(String[] args) {
-        Path inputPath = Paths.get("studenti_in.txt");
+        Path inputPath = Paths.get("studenti.txt");
         Path outputPath = Paths.get("studenti_out.txt");
-        Path outputSortedPath = Paths.get("studenti_out_sorted.txt");
-        List<Students> listaStudenti = new ArrayList<>();
+        Path notesPath = Paths.get("note_anon.txt");
+        Path outputSortedPath = Paths.get("students_sorted.txt");
+
+        Map<Integer, Students> mapStudenti = new HashMap<>();
+        try {
+            List<String> liniiStudenti = Files.readAllLines(inputPath);
+            for (String linie : liniiStudenti) {
+                if (linie.trim().isEmpty()) continue;
+
+                String[] date = linie.split(",");
+                int nrMatricol = Integer.parseInt(date[0].trim());
+                String prenume = date[1].trim();
+                String nume = date[2].trim();
+                String formatie = date[3].trim();
+
+                mapStudenti.put(nrMatricol, new Students(nrMatricol, prenume, nume, formatie));
+            }
+            if (Files.exists(notesPath)) {
+                List<String> liniiNote = Files.readAllLines(notesPath);
+                for (String linie : liniiNote) {
+                    if (linie.trim().isEmpty()) continue;
+
+                    String[] dateNote = linie.split(",");
+                    int nrMatricolNote = Integer.parseInt(dateNote[0].trim());
+                    float notaVal = Float.parseFloat(dateNote[1].trim());
+
+                    // Cautare si actualizare directa (O(1)) [cite: 258, 266]
+                    if (mapStudenti.containsKey(nrMatricolNote)) {
+                        mapStudenti.get(nrMatricolNote).setNota(notaVal);
+                    }
+                }
+            }
+            System.out.println("Catalog Studenti (Nr. Matricol | Prenume | Nume | Grupa | Nota):");
+            for (Students s : mapStudenti.values()) {
+                System.out.println(s);
+            }
+        } catch (IOException e) {
+            System.err.println("Eroare la procesarea fisierelor: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Eroare la formatul numerelor in fisier: " + e.getMessage());
+        }
+        //List<Students> listaStudenti = new ArrayList<>();
 
        /* List<Students> listaStudenti = new ArrayList<>();
 
@@ -70,7 +112,7 @@ public class Application {
         return false;
     } */
 
-        try {
+       /* try {
             List<String> linii = Files.readAllLines(inputPath);
 
             for (String linie : linii) {
@@ -120,6 +162,6 @@ public class Application {
             System.out.println("Tema (3.5.3) a fost salvată în studenti_out_sorted.txt");
         } catch (IOException e) {
             System.err.println("Eroare la procesarea fișierelor: " + e.getMessage());
-        }
+        } */
     }
 }
