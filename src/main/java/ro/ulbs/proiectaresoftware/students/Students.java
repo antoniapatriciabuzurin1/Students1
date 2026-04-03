@@ -16,6 +16,10 @@ public class Students {
         this.nume = nume;
         this.formatieDeStudiu = formatieDeStudiu;
     }
+    public Students(int numarMatricol, String prenume, String nume, String formatieDeStudiu, float nota) {
+        this(numarMatricol, prenume, nume, formatieDeStudiu);
+        this.nota = nota;
+    }
 
     public float getNota() {
         return nota;
