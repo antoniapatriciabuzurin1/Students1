@@ -8,6 +8,9 @@ public class StudentBursier extends Students {
         this.setNota(nota);
         this.cuantumBursa = cuantumBursa;
     }
+    public double getCuantumBursa() {
+        return cuantumBursa;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
