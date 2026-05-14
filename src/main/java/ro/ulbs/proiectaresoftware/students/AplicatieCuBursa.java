@@ -1,4 +1,4 @@
-package ro.ulbs.proiectaresoftware.students;
+/*package ro.ulbs.proiectaresoftware.students;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,4 +44,4 @@ public class AplicatieCuBursa {
         });
         return lst;
     }
-}
+} */

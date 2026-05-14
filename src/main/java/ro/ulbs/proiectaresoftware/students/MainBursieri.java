@@ -1,4 +1,4 @@
-package ro.ulbs.proiectaresoftware.students;
+/*package ro.ulbs.proiectaresoftware.students;
 
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
@@ -28,3 +28,4 @@ public class MainBursieri {
         writeToFile("bursieri_out.txt", bursieri);
     }
 }
+*/

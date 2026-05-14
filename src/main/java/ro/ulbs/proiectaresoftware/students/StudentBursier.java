@@ -1,4 +1,4 @@
-package ro.ulbs.proiectaresoftware.students;
+/*package ro.ulbs.proiectaresoftware.students;
 import java.util.Objects;
 
 public class StudentBursier extends Students {
@@ -27,4 +27,4 @@ public class StudentBursier extends Students {
     public String toString() {
         return super.toString() + String.format(" | Bursa: %.2f", cuantumBursa);
     }
-}
+} */

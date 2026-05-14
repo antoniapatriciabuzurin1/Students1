@@ -1,31 +1,29 @@
 package ro.ulbs.proiectaresoftware.students;
+
 import java.util.Objects;
 
+public final class Students {
 
-public class Students {
-
-    private int numarMatricol;
-    private String prenume;
-    private String nume;
-    private String formatieDeStudiu;
-    private float nota;
+    private final int numarMatricol;
+    private final String prenume;
+    private final String nume;
+    private final String formatieDeStudiu;
+    private final float nota;
 
     public Students(int numarMatricol, String prenume, String nume, String formatieDeStudiu) {
+        this(numarMatricol, prenume, nume, formatieDeStudiu, 0);
+    }
+
+    public Students(int numarMatricol, String prenume, String nume, String formatieDeStudiu, float nota) {
         this.numarMatricol = numarMatricol;
         this.prenume = prenume;
         this.nume = nume;
         this.formatieDeStudiu = formatieDeStudiu;
-    }
-    public Students(int numarMatricol, String prenume, String nume, String formatieDeStudiu, float nota) {
-        this(numarMatricol, prenume, nume, formatieDeStudiu);
         this.nota = nota;
     }
 
     public float getNota() {
         return nota;
-    }
-    public void setNota(float nota) {
-        this.nota = nota;
     }
 
     public int getNumarMatricol() {
@@ -43,6 +41,7 @@ public class Students {
     public String getFormatieDeStudiu() {
         return formatieDeStudiu;
     }
+
     @Override
     public String toString() {
         return String.format("%-10d %-10s %-12s %-10s | Nota: %.2f",
@@ -53,7 +52,9 @@ public class Students {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Students student = (Students) o;
+
         return numarMatricol == student.numarMatricol &&
                 Objects.equals(prenume, student.prenume) &&
                 Objects.equals(nume, student.nume);
