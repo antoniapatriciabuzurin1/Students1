@@ -1,6 +1,4 @@
-1027,Paul,Mohanu,TI132/1
-1028,Mihai,Ionescu,TI132/1
-1025,Andrei,Popa,ISM141/2
-1024,Ioan,Mihalcea,ISM141/1
-1026,Anamaria,Prodan,TI131/1
-1029,Bianca,Popescu,TI131/1
+1025;Andrei;Popa;ISM141/2;8.70
+1024;Ioan;Mihalcea;ISM141/1;10.00
+1026;Anamaria;Prodan;TI131/1;8.90
+1029;Bianca;Popescu;TI131/1;10.00
